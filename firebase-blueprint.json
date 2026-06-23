@@ -1,0 +1,18 @@
+{
+  "collections": [
+    {
+      "name": "users",
+      "description": "User profiles and subscription status",
+      "fields": [
+        { "name": "email", "type": "string", "description": "User email address" },
+        { "name": "vipExpiresAt", "type": "number", "description": "Timestamp in ms for VIP expiration" },
+        { "name": "role", "type": "string", "description": "User role: 'admin' or 'user'" },
+        { "name": "createdAt", "type": "number", "description": "Timestamp of account creation" }
+      ],
+      "access": {
+        "read": "request.auth != null && (request.auth.uid == documentId || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')",
+        "write": "request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'"
+      }
+    }
+  ]
+}

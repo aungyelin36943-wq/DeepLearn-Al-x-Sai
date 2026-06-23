@@ -1,0 +1,6 @@
+{
+  "name": "DeepLearn AI x Sai",
+  "description": "Text-to-Speech & Audio Transcription tool with 14 Microsoft voices and unlimited Groq API integrations.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
